@@ -1,5 +1,9 @@
 package com.quantitymeasurement;
-//Welcome To Quantity Measurement
-public class QuantityMeasurement {
 
+public class QuantityMeasurement {
+    public boolean calculatingMeasurements(int paramOne, int paramTwo) {
+        if (paramOne == paramTwo)
+            return true;
+        return false;
+    }
 }
