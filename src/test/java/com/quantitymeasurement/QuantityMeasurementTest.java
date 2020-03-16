@@ -176,4 +176,23 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(3.78, conversion, 0.0);
     }
 
+    @Test
+    public void givenVolumeInLitre_ShouldReturnConversionInMilliliter() {
+        double conversion = object.conversion(1, Conversion.LITRE_TO_ML);
+        Assert.assertEquals(1000, conversion, 0.0);
+    }
+
+    @Test
+    public void givenLengthsInGallonAndLitre_WhenPerformedAddition_ShouldReturnResulIntLitres() {
+        double conversion = object.conversion(1, Conversion.GALLON_TO_LITRE);
+        double result = object.addition(3.78, conversion, Conversion.INCH);
+        Assert.assertEquals(7.57, result, 0.0);
+    }
+
+    @Test
+    public void givenLengthsInLitreAndMillilitre_WhenPerformedAddition_ShouldReturnResultInLitres() {
+        double conversion = object.conversion(1000, Conversion.ML_TO_LITRE);
+        double result = object.addition(1, conversion, Conversion.INCH);
+        Assert.assertEquals(2, result, 0.0);
+    }
 }

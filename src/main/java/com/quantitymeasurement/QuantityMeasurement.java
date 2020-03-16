@@ -34,6 +34,6 @@ public class QuantityMeasurement {
     }
 
     public double addition(double unitOne, double unitTwo, Conversion conversion) {
-        return unitOne*conversion.unitValue+unitTwo*conversion.unitValue;
+        return unitOne+unitTwo;
     }
 }
