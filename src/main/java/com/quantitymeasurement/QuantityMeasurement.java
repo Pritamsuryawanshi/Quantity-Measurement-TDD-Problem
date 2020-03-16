@@ -13,11 +13,13 @@ public class QuantityMeasurement {
     public QuantityMeasurement() {
     }
 
-    public boolean comparingValues(int paramOne, int paramTwo, Conversion conversion) {
-        if (paramOne * conversion.unitValue == paramTwo * conversion.unitValue)
+    public boolean comparingValues(int paramOne, int paramTwo) {
+        if (paramOne  == paramTwo )
             return true;
         return false;
     }
+
+
 
     @Override
     public boolean equals(Object object) {
@@ -32,5 +34,9 @@ public class QuantityMeasurement {
         if (objectForInch == this)
             return true;
         return false;
+    }
+
+    public double conversion(int valueOne,Conversion conversion) {
+        return valueOne * conversion.unitValue;
     }
 }
