@@ -5,76 +5,76 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class QuantityMeasurementTest {
-    private QuantityMeasurementForFeet objectForFeet;
-    private QuantityMeasurementForInch objectForInch;
+
+    private QuantityMeasurement object;
 
     @Before
     public void QuantityMeasurement() {
-        objectForFeet = new QuantityMeasurementForFeet();
-        objectForInch = new QuantityMeasurementForInch();
+
+        object = new QuantityMeasurement();
     }
 
     @Test
     public void givenTwoUnit_IfEqual_ShouldReturnTrue() {
-        boolean result = objectForFeet.calculatingMeasurements(0, 0);
+        boolean result = object.comparingFeetValues(0, 0);
         Assert.assertTrue(result);
     }
 
 
     @Test
     public void givenObject_IfNotNull_ShouldReturnFalse() {
-        boolean result = objectForFeet.equals(null);
+        boolean result = object.equals(null);
         Assert.assertFalse(result);
     }
 
 
     @Test
     public void givenObject_IfMatchesTheReference_ShouldReturnFalse() {
-        boolean result = objectForFeet.referenceCheck(objectForFeet);
+        boolean result = object.referenceCheck(object);
         Assert.assertTrue(result);
     }
 
     @Test
     public void givenObject_IfMatchesTheType_ShouldReturnFalse() {
-        boolean result = objectForFeet.typeCheck(objectForFeet);
+        boolean result = object.typeCheck(object);
         Assert.assertTrue(result);
     }
 
     @Test
     public void givenObjects_IfMatchesTheirValues_ShouldReturnFalse() {
-        QuantityMeasurementForFeet objectOne = new QuantityMeasurementForFeet(5, 10);
-        QuantityMeasurementForFeet objectTwo = new QuantityMeasurementForFeet(5, 10);
+        QuantityMeasurement objectOne = new QuantityMeasurement(5, 10);
+        QuantityMeasurement objectTwo = new QuantityMeasurement(5, 10);
         Assert.assertEquals(objectOne.valueOne, objectTwo.valueOne);
     }
 
     @Test
     public void givenTwoValuesInInch_IfEqual_ShouldReturnTrue() {
-        boolean result = objectForInch.calculatingMeasurements(0, 0);
+        boolean result = object.comparingInchValues(0, 0);
         Assert.assertTrue(result);
     }
 
     @Test
     public void givenObjectForInch_IfNotNull_ShouldReturnFalse() {
-        boolean result = objectForInch.equals(null);
+        boolean result = object.equals(null);
         Assert.assertFalse(result);
     }
 
     @Test
     public void givenObjectForInch_IfMatchesTheReference_ShouldReturnFalse() {
-        boolean result = objectForInch.referenceCheck(objectForInch);
+        boolean result = object.referenceCheck(object);
         Assert.assertTrue(result);
     }
 
     @Test
     public void givenObjectForInch_IfMatchesTheType_ShouldReturnFalse() {
-        boolean result = objectForInch.typeCheck(objectForInch);
+        boolean result = object.typeCheck(object);
         Assert.assertTrue(result);
     }
 
     @Test
     public void givenObjectsFor_IfMatchesTheirValues_ShouldReturnFalse() {
-        QuantityMeasurementForInch objectOne = new QuantityMeasurementForInch(5, 10);
-        QuantityMeasurementForInch objectTwo = new QuantityMeasurementForInch(5, 10);
+        QuantityMeasurement objectOne = new QuantityMeasurement(5, 10);
+        QuantityMeasurement objectTwo = new QuantityMeasurement(5, 10);
         Assert.assertEquals(objectOne.valueOne, objectTwo.valueOne);
     }
 }
