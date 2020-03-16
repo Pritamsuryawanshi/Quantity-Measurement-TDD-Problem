@@ -27,10 +27,9 @@ public class QuantityMeasurementTest {
         Assert.assertFalse(result);
     }
 
-
     @Test
     public void givenObject_IfMatchesTheReference_ShouldReturnFalse() {
-        boolean result = object.referenceCheck(object);
+        boolean result = object.equals(new QuantityMeasurement());
         Assert.assertTrue(result);
     }
 
@@ -61,7 +60,7 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenObjectForInch_IfMatchesTheReference_ShouldReturnFalse() {
-        boolean result = object.referenceCheck(object);
+        boolean result = object.equals(new QuantityMeasurement());
         Assert.assertTrue(result);
     }
 
@@ -144,5 +143,9 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(5, result, 0.0);
     }
 
-
+    @Test
+    public void givenLengthsInInch_ShouldReturnAddition() {
+        double result = object.addition(2, 2, Conversion.INCH);
+        Assert.assertEquals(4, result, 0.0);
+    }
 }

@@ -28,11 +28,6 @@ public class QuantityMeasurement {
         return true;
     }
 
-    public boolean referenceCheck(QuantityMeasurement objectForInch) {
-        if (objectForInch == this)
-            return true;
-        return false;
-    }
 
     public double conversion(int valueOne, Conversion conversion) {
         return valueOne * conversion.unitValue;
