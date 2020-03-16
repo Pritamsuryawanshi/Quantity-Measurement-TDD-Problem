@@ -10,17 +10,11 @@ public class QuantityMeasurement {
         this.valueTwo = valueTwo;
 
     }
-
     public QuantityMeasurement() {
     }
 
-    public boolean comparingFeetValues(int paramOne, int paramTwo) {
-        if (paramOne == paramTwo)
-            return true;
-        return false;
-    }
-    public boolean comparingInchValues(int paramOne, int paramTwo) {
-        if (paramOne == paramTwo)
+    public boolean comparingValues(int paramOne, int paramTwo, Conversion conversion) {
+        if (paramOne * conversion.unitValue == paramTwo * conversion.unitValue)
             return true;
         return false;
     }

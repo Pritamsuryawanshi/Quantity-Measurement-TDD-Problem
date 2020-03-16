@@ -16,8 +16,8 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenTwoUnit_IfEqual_ShouldReturnTrue() {
-        boolean result = object.comparingFeetValues(0, 0);
+    public void givenTwoValuesInFeet_IfEqual_ShouldReturnTrue() {
+        boolean result = object.comparingValues(0, 0,Conversion.FEET);
         Assert.assertTrue(result);
     }
 
@@ -50,7 +50,7 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenTwoValuesInInch_IfEqual_ShouldReturnTrue() {
-        boolean result = object.comparingInchValues(0, 0);
+        boolean result = object.comparingValues(0, 0,Conversion.INCH);
         Assert.assertTrue(result);
     }
 
@@ -77,5 +77,10 @@ public class QuantityMeasurementTest {
         QuantityMeasurement objectOne = new QuantityMeasurement(5, 10);
         QuantityMeasurement objectTwo = new QuantityMeasurement(5, 10);
         Assert.assertEquals(objectOne.valueOne, objectTwo.valueOne);
+    }
+
+    @Test
+    public void givenLengthInFeet_IfNotEqualInInch_ShouldReturnFalse() {
+
     }
 }
