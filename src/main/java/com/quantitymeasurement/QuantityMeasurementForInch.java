@@ -17,8 +17,14 @@ public class QuantityMeasurementForInch {
         return true;
     }
 
-    public boolean referenceCheck(QuantityMeasurementForInch objectForFeet) {
-        if (objectForFeet == this)
+    public boolean referenceCheck(QuantityMeasurementForInch objectForInch) {
+        if (objectForInch == this)
+            return true;
+        return false;
+    }
+
+    public boolean typeCheck(QuantityMeasurementForInch objectForInch) {
+        if (objectForInch.getClass() == this.getClass())
             return true;
         return false;
     }

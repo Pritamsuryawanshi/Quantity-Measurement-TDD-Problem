@@ -33,7 +33,7 @@ public class QuantityMeasurementTest {
         boolean result = objectForFeet.referenceCheck(objectForFeet);
         Assert.assertTrue(result);
     }
-//
+
     @Test
     public void givenObject_IfMatchesTheType_ShouldReturnFalse() {
         boolean result = objectForFeet.typeCheck(objectForFeet);
@@ -62,6 +62,12 @@ public class QuantityMeasurementTest {
     @Test
     public void givenObjectForInch_IfMatchesTheReference_ShouldReturnFalse() {
         boolean result = objectForInch.referenceCheck(objectForInch);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenObjectForInch_IfMatchesTheType_ShouldReturnFalse() {
+        boolean result = objectForInch.typeCheck(objectForInch);
         Assert.assertTrue(result);
     }
 }
