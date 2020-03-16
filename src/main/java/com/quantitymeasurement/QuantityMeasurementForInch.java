@@ -2,6 +2,18 @@ package com.quantitymeasurement;
 
 public class QuantityMeasurementForInch {
 
+    public int valueOne;
+    public int valueTwo;
+
+    public QuantityMeasurementForInch(int valueOne, int valueTwo) {
+        this.valueOne = valueOne;
+        this.valueTwo = valueTwo;
+
+    }
+
+    public QuantityMeasurementForInch() {
+    }
+
     public boolean calculatingMeasurements(int paramOne, int paramTwo) {
         if (paramOne == paramTwo)
             return true;

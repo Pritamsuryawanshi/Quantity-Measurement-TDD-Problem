@@ -70,4 +70,11 @@ public class QuantityMeasurementTest {
         boolean result = objectForInch.typeCheck(objectForInch);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void givenObjectsFor_IfMatchesTheirValues_ShouldReturnFalse() {
+        QuantityMeasurementForInch objectOne = new QuantityMeasurementForInch(5, 10);
+        QuantityMeasurementForInch objectTwo = new QuantityMeasurementForInch(5, 10);
+        Assert.assertEquals(objectOne.valueOne, objectTwo.valueOne);
+    }
 }
