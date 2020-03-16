@@ -8,10 +8,10 @@ public class QuantityMeasurementTest {
     private QuantityMeasurementForFeet objectForFeet;
     private QuantityMeasurementForInch objectForInch;
 
-
     @Before
     public void QuantityMeasurement() {
         objectForFeet = new QuantityMeasurementForFeet();
+        objectForInch = new QuantityMeasurementForInch();
     }
 
     @Test
@@ -20,12 +20,14 @@ public class QuantityMeasurementTest {
         Assert.assertTrue(result);
     }
 
+
     @Test
     public void givenObject_IfNotNull_ShouldReturnFalse() {
         boolean result = objectForFeet.equals(null);
         Assert.assertFalse(result);
     }
 
+    //
     @Test
     public void givenObject_IfMatchesTheReference_ShouldReturnFalse() {
         boolean result = objectForFeet.referenceCheck(objectForFeet);
@@ -40,14 +42,20 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenObjects_IfMatchesTheirValues_ShouldReturnFalse() {
-        QuantityMeasurementForFeet objectOne = new QuantityMeasurementForFeet(5,10);
-        QuantityMeasurementForFeet objectTwo = new QuantityMeasurementForFeet(5,10);
-        Assert.assertEquals(objectOne.valueOne,objectTwo.valueOne);
+        QuantityMeasurementForFeet objectOne = new QuantityMeasurementForFeet(5, 10);
+        QuantityMeasurementForFeet objectTwo = new QuantityMeasurementForFeet(5, 10);
+        Assert.assertEquals(objectOne.valueOne, objectTwo.valueOne);
     }
 
     @Test
     public void givenTwoValuesInInch_IfEqual_ShouldReturnTrue() {
         boolean result = objectForInch.calculatingMeasurements(0, 0);
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenObjectForInch_IfNotNull_ShouldReturnFalse() {
+        boolean result = objectForInch.equals(null);
+        Assert.assertFalse(result);
     }
 }
