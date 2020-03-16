@@ -24,10 +24,15 @@ public class QuantityMeasurementTest {
         Assert.assertFalse(result);
     }
 
-
     @Test
     public void givenObject_IfMatchesTheReference_ShouldReturnFalse() {
         boolean result = object.referenceCheck(object);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenObject_IfMatchesTheType_ShouldReturnFalse() {
+        boolean result = object.typeCheck(object);
         Assert.assertTrue(result);
     }
 }

@@ -21,4 +21,10 @@ public class QuantityMeasurement {
             return true;
         return false;
     }
+
+    public boolean typeCheck(QuantityMeasurement object) {
+        if(object.getClass()==this.getClass())
+            return true;
+        return false;
+    }
 }
