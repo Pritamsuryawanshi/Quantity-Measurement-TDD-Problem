@@ -39,10 +39,4 @@ public class QuantityMeasurement {
             return true;
         return false;
     }
-
-    public boolean typeCheck(QuantityMeasurement objectForInch) {
-        if (objectForInch.getClass() == this.getClass())
-            return true;
-        return false;
-    }
 }

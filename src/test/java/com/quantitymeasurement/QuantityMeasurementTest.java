@@ -4,13 +4,14 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Objects;
+
 public class QuantityMeasurementTest {
 
     private QuantityMeasurement object;
 
     @Before
     public void QuantityMeasurement() {
-
         object = new QuantityMeasurement();
     }
 
@@ -36,7 +37,7 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenObject_IfMatchesTheType_ShouldReturnFalse() {
-        boolean result = object.typeCheck(object);
+        boolean result = Objects.equals(object.getClass(), QuantityMeasurement.class);
         Assert.assertTrue(result);
     }
 
@@ -67,7 +68,7 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenObjectForInch_IfMatchesTheType_ShouldReturnFalse() {
-        boolean result = object.typeCheck(object);
+        boolean result =object.getClass().equals(QuantityMeasurement.class);
         Assert.assertTrue(result);
     }
 
