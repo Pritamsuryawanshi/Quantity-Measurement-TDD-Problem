@@ -1,7 +1,5 @@
 package com.quantitymeasurement;
 
-import java.util.Objects;
-
 public class QuantityMeasurement {
     public boolean calculatingMeasurements(int paramOne, int paramTwo) {
         if (paramOne == paramTwo)
@@ -16,5 +14,11 @@ public class QuantityMeasurement {
         if (!(object instanceof QuantityMeasurement))
             return false;
         return true;
+    }
+
+    public boolean referenceCheck(QuantityMeasurement object) {
+        if(object==this)
+            return true;
+        return false;
     }
 }
