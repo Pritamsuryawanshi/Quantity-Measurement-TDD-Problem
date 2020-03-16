@@ -33,7 +33,7 @@ public class QuantityMeasurement {
         return valueOne * conversion.unitValue;
     }
 
-    public double addition(double unitOne, double unitTwo, Conversion conversion) {
-        return unitOne+unitTwo;
+    public double addition(double unitOne, double unitTwo) {
+        return unitOne + unitTwo;
     }
 }

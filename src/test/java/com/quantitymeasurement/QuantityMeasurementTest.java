@@ -145,35 +145,35 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenLengthsInInch_ShouldReturnAddition() {
-        double result = object.addition(2, 2, Conversion.INCH);
+        double result = object.addition(2, 2);
         Assert.assertEquals(4, result, 0.0);
     }
 
     @Test
     public void givenLengthsInFeetAndInch_ShouldReturnAddition() {
         double conversion = object.conversion(1, Conversion.FEET_TO_INCH);
-        double result = object.addition(conversion, 2, Conversion.INCH);
+        double result = object.addition(conversion, 2);
         Assert.assertEquals(14, result, 0.0);
     }
 
     @Test
     public void givenLengthsInFeet_WhenPerformedAddition_ShouldReturnResultInInch() {
         double conversion = object.conversion(1, Conversion.FEET_TO_INCH);
-        double result = object.addition(conversion, conversion, Conversion.INCH);
+        double result = object.addition(conversion, conversion);
         Assert.assertEquals(24, result, 0.0);
     }
 
     @Test
     public void givenLengthsInInchAndCm_WhenPerformedAddition_ShouldReturnResultInInch() {
         double conversion = object.conversion(2.5, Conversion.CM_TO_INCH);
-        double result = object.addition(2, conversion, Conversion.INCH);
+        double result = object.addition(2, conversion);
         Assert.assertEquals(3, result, 0.0);
     }
 
     @Test
     public void givenVolumeInLitre_ShouldReturnConversionInGallon() {
         double conversion = object.conversion(1, Conversion.GALLON_TO_LITRE);
-        Assert.assertEquals(3.78, conversion, 0.0);
+        Assert.assertEquals(3.79, conversion, 0.0);
     }
 
     @Test
@@ -185,14 +185,34 @@ public class QuantityMeasurementTest {
     @Test
     public void givenLengthsInGallonAndLitre_WhenPerformedAddition_ShouldReturnResulIntLitres() {
         double conversion = object.conversion(1, Conversion.GALLON_TO_LITRE);
-        double result = object.addition(3.78, conversion, Conversion.INCH);
+        double result = object.addition(3.78, conversion);
         Assert.assertEquals(7.57, result, 0.0);
     }
 
     @Test
     public void givenLengthsInLitreAndMillilitre_WhenPerformedAddition_ShouldReturnResultInLitres() {
         double conversion = object.conversion(1000, Conversion.ML_TO_LITRE);
-        double result = object.addition(1, conversion, Conversion.INCH);
+        double result = object.addition(1, conversion);
         Assert.assertEquals(2, result, 0.0);
+    }
+
+    @Test
+    public void givenWeightsInKilogram_ShouldReturnConversionInGrams() {
+        double conversion = object.conversion(1, Conversion.KILOGRAM_TO_GRAM);
+        Assert.assertEquals(1000, conversion, 0.0);
+    }
+
+    @Test
+    public void givenWeightsInTonnes__WhenPerformedAddition_ShouldReturnResultInKilogram() {
+        double conversion = object.conversion(1, Conversion.TONNE_TO_KILOGRAM);
+        Assert.assertEquals(1000, conversion, 0.0);
+    }
+
+    @Test
+    public void givenWeightsInTonnesAnd_ShouldReturnConversionInKilogram() {
+        double conversionOne = object.conversion(1, Conversion.TONNE_TO_KILOGRAM);
+        double conversionTwo = object.conversion(1000, Conversion.GRAM_TO_KILOGRAM);
+        double result = object.addition(conversionOne, conversionTwo);
+        Assert.assertEquals(1001, result, 0.0);
     }
 }
