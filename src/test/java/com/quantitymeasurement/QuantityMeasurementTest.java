@@ -5,41 +5,49 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class QuantityMeasurementTest {
-    private QuantityMeasurement object;
+    private QuantityMeasurementForFeet objectForFeet;
+    private QuantityMeasurementForInch objectForInch;
+
 
     @Before
     public void QuantityMeasurement() {
-        object = new QuantityMeasurement();
+        objectForFeet = new QuantityMeasurementForFeet();
     }
 
     @Test
     public void givenTwoUnit_IfEqual_ShouldReturnTrue() {
-        boolean result = object.calculatingMeasurements(0, 0);
+        boolean result = objectForFeet.calculatingMeasurements(0, 0);
         Assert.assertTrue(result);
     }
 
     @Test
     public void givenObject_IfNotNull_ShouldReturnFalse() {
-        boolean result = object.equals(null);
+        boolean result = objectForFeet.equals(null);
         Assert.assertFalse(result);
     }
 
     @Test
     public void givenObject_IfMatchesTheReference_ShouldReturnFalse() {
-        boolean result = object.referenceCheck(object);
+        boolean result = objectForFeet.referenceCheck(objectForFeet);
         Assert.assertTrue(result);
     }
 
     @Test
     public void givenObject_IfMatchesTheType_ShouldReturnFalse() {
-        boolean result = object.typeCheck(object);
+        boolean result = objectForFeet.typeCheck(objectForFeet);
         Assert.assertTrue(result);
     }
 
     @Test
     public void givenObjects_IfMatchesTheirValues_ShouldReturnFalse() {
-        QuantityMeasurement objectOne = new QuantityMeasurement(5,10);
-        QuantityMeasurement objectTwo = new QuantityMeasurement(5,10);
+        QuantityMeasurementForFeet objectOne = new QuantityMeasurementForFeet(5,10);
+        QuantityMeasurementForFeet objectTwo = new QuantityMeasurementForFeet(5,10);
         Assert.assertEquals(objectOne.valueOne,objectTwo.valueOne);
+    }
+
+    @Test
+    public void givenTwoValuesInInch_IfEqual_ShouldReturnTrue() {
+        boolean result = objectForInch.calculatingMeasurements(0, 0);
+        Assert.assertTrue(result);
     }
 }

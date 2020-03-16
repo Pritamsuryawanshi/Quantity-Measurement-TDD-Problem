@@ -1,13 +1,13 @@
 package com.quantitymeasurement;
 
-public class QuantityMeasurement {
+public class QuantityMeasurementForFeet {
     public int valueOne;
     public int valueTwo;
 
-    public QuantityMeasurement() {
+    public QuantityMeasurementForFeet() {
 
     }
-    public QuantityMeasurement(int valueOne, int valueTwo) {
+    public QuantityMeasurementForFeet(int valueOne, int valueTwo) {
         this.valueOne = valueOne;
         this.valueTwo = valueTwo;
     }
@@ -22,18 +22,18 @@ public class QuantityMeasurement {
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
-        if (!(object instanceof QuantityMeasurement))
+        if (!(object instanceof QuantityMeasurementForFeet))
             return false;
         return true;
     }
 
-    public boolean referenceCheck(QuantityMeasurement object) {
+    public boolean referenceCheck(QuantityMeasurementForFeet object) {
         if (object == this)
             return true;
         return false;
     }
 
-    public boolean typeCheck(QuantityMeasurement object) {
+    public boolean typeCheck(QuantityMeasurementForFeet object) {
         if (object.getClass() == this.getClass())
             return true;
         return false;
