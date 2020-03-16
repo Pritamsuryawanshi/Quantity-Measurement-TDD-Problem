@@ -139,7 +139,7 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenLengthsInInch_ShouldReturnInCentimeter() {
-        double result = object.conversion(2,  Conversion.INCH_TO_CM);
+        double result = object.conversion(2, Conversion.INCH_TO_CM);
         Assert.assertEquals(5, result, 0.0);
     }
 
@@ -148,4 +148,32 @@ public class QuantityMeasurementTest {
         double result = object.addition(2, 2, Conversion.INCH);
         Assert.assertEquals(4, result, 0.0);
     }
+
+    @Test
+    public void givenLengthsInFeetAndInch_ShouldReturnAddition() {
+        double conversion = object.conversion(1, Conversion.FEET_TO_INCH);
+        double result = object.addition(conversion, 2, Conversion.INCH);
+        Assert.assertEquals(14, result, 0.0);
+    }
+
+    @Test
+    public void givenLengthsInFeet_WhenPerformedAddition_ShouldReturnResultInInch() {
+        double conversion = object.conversion(1, Conversion.FEET_TO_INCH);
+        double result = object.addition(conversion, conversion, Conversion.INCH);
+        Assert.assertEquals(24, result, 0.0);
+    }
+
+    @Test
+    public void givenLengthsInInchAndCm_WhenPerformedAddition_ShouldReturnResultInInch() {
+        double conversion = object.conversion(2.5, Conversion.CM_TO_INCH);
+        double result = object.addition(2, conversion, Conversion.INCH);
+        Assert.assertEquals(3, result, 0.0);
+    }
+
+    @Test
+    public void givenVolumeInLitre_ShouldReturnConversionInGallon() {
+        double conversion = object.conversion(1, Conversion.GALLON_TO_LITRE);
+        Assert.assertEquals(3.78, conversion, 0.0);
+    }
+
 }

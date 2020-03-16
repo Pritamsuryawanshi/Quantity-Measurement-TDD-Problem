@@ -29,11 +29,11 @@ public class QuantityMeasurement {
     }
 
 
-    public double conversion(int valueOne, Conversion conversion) {
+    public double conversion(double valueOne, Conversion conversion) {
         return valueOne * conversion.unitValue;
     }
 
-    public double addition(int unitOne, int unitTwo, Conversion conversion) {
+    public double addition(double unitOne, double unitTwo, Conversion conversion) {
         return unitOne*conversion.unitValue+unitTwo*conversion.unitValue;
     }
 }
