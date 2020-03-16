@@ -21,7 +21,6 @@ public class QuantityMeasurementTest {
         Assert.assertTrue(result);
     }
 
-
     @Test
     public void givenObject_IfNotNull_ShouldReturnFalse() {
         boolean result = object.equals(null);
@@ -138,4 +137,12 @@ public class QuantityMeasurementTest {
         double result = object.conversion(1, Conversion.YARD_TO_FEET);
         Assert.assertEquals(3, result, 0.0);
     }
+
+    @Test
+    public void givenLengthsInInch_ShouldReturnInCentimeter() {
+        double result = object.conversion(2,  Conversion.INCH_TO_CM);
+        Assert.assertEquals(5, result, 0.0);
+    }
+
+
 }

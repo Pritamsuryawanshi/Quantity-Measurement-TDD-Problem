@@ -8,18 +8,16 @@ public class QuantityMeasurement {
     public QuantityMeasurement(int valueOne, int valueTwo) {
         this.valueOne = valueOne;
         this.valueTwo = valueTwo;
-
     }
+
     public QuantityMeasurement() {
     }
 
     public boolean comparingValues(int paramOne, int paramTwo) {
-        if (paramOne  == paramTwo )
+        if (paramOne == paramTwo)
             return true;
         return false;
     }
-
-
 
     @Override
     public boolean equals(Object object) {
@@ -36,7 +34,11 @@ public class QuantityMeasurement {
         return false;
     }
 
-    public double conversion(int valueOne,Conversion conversion) {
+    public double conversion(int valueOne, Conversion conversion) {
         return valueOne * conversion.unitValue;
+    }
+
+    public double addition(int unitOne, int unitTwo, Conversion conversion) {
+        return unitOne*conversion.unitValue+unitTwo*conversion.unitValue;
     }
 }
