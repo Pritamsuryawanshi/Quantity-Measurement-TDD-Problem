@@ -68,7 +68,7 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenObjectForInch_IfMatchesTheType_ShouldReturnFalse() {
-        boolean result =object.getClass().equals(QuantityMeasurement.class);
+        boolean result = object.getClass().equals(QuantityMeasurement.class);
         Assert.assertTrue(result);
     }
 
@@ -80,26 +80,62 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenLengthInFeet_IfNotEqualInInch_ShouldReturnFalse() {
-        double result = object.conversion(1,  Conversion.FEET_TO_INCH);
-        Assert.assertNotEquals(1,result);
+    public void givenLengthInFeet_IfNotEqualInInch_ShouldReturnConversion() {
+        double result = object.conversion(1, Conversion.FEET_TO_INCH);
+        Assert.assertNotEquals(1, result);
     }
 
     @Test
-    public void givenLengthInInch_IfNotEqualInInch_ShouldReturnFalse() {
-        double result = object.conversion(1,  Conversion.INCH_TO_FEET);
-        Assert.assertNotEquals(1,result);
+    public void givenLengthInInch_IfNotEqualInInch_ShouldReturnConversion() {
+        double result = object.conversion(1, Conversion.INCH_TO_FEET);
+        Assert.assertNotEquals(1, result);
     }
 
     @Test
-    public void givenLengthInFeet_IfEqualsInInch_ShouldReturnTrue() {
-        double result = object.conversion(1,  Conversion.FEET_TO_INCH);
-        Assert.assertNotEquals(12,result);
+    public void givenLengthInFeet_IfEqualsInInch_ShouldReturnConversion() {
+        double result = object.conversion(1, Conversion.FEET_TO_INCH);
+        Assert.assertNotEquals(12, result);
     }
 
     @Test
-    public void givenLengthInInch_IfEqualsInFeet_ShouldReturnTrue() {
-        double result = object.conversion(12,  Conversion.FEET_TO_INCH);
-        Assert.assertNotEquals(1,result);
+    public void givenLengthInInch_IfEqualsInFeet_ShouldReturnConversion() {
+        double result = object.conversion(12, Conversion.FEET_TO_INCH);
+        Assert.assertNotEquals(1, result);
+    }
+
+    @Test
+    public void givenLengthInFeet_IfEqualsInYard_ShouldReturnConversion() {
+        double result = object.conversion(3, Conversion.FEET_TO_YARD);
+        Assert.assertEquals(1.0, result, 0.0);
+    }
+
+    @Test
+    public void givenLengthInFeet_IfNotEqualsInYard_ShouldReturnConversion() {
+        double result = object.conversion(1, Conversion.FEET_TO_YARD);
+        Assert.assertNotEquals(1, result, 0.0);
+    }
+
+    @Test
+    public void givenLengthInInch_IfNotEqualsInYard_ShouldReturnConversion() {
+        double result = object.conversion(1, Conversion.INCH_TO_YARD);
+        Assert.assertNotEquals(1, result, 0.0);
+    }
+
+    @Test
+    public void givenLengthInYard_IfEqualsInInch_ShouldReturnConversion() {
+        double result = object.conversion(1, Conversion.YARD_TO_INCH);
+        Assert.assertEquals(36, result, 0.0);
+    }
+
+    @Test
+    public void givenLengthInInch_IfEqualsInYard_ShouldReturnConversion() {
+        double result = object.conversion(36, Conversion.INCH_TO_YARD);
+        Assert.assertEquals(1, result, 0.0);
+    }
+
+    @Test
+    public void givenLengthInYards_IfEqualsInFeet_ShouldReturnConversion() {
+        double result = object.conversion(1, Conversion.YARD_TO_FEET);
+        Assert.assertEquals(3, result, 0.0);
     }
 }
