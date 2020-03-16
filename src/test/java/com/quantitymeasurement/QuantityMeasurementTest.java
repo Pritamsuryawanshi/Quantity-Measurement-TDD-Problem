@@ -170,4 +170,15 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(3, result, 0.0);
     }
 
+    @Test
+    public void givenVolumeInLitre_ShouldReturnConversionInGallon() {
+        double conversion = object.conversion(1, Conversion.GALLON_TO_LITRE);
+        Assert.assertEquals(3.78, conversion, 0.0);
+    }
+
+    @Test
+    public void givenVolumeInLitre_ShouldReturnConversionInMilliliter() {
+        double conversion = object.conversion(1, Conversion.LITRE_TO_ML);
+        Assert.assertEquals(1000, conversion, 0.0);
+    }
 }
