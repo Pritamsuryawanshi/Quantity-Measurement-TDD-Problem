@@ -16,4 +16,10 @@ public class QuantityMeasurementForInch {
             return false;
         return true;
     }
+
+    public boolean referenceCheck(QuantityMeasurementForInch objectForFeet) {
+        if (objectForFeet == this)
+            return true;
+        return false;
+    }
 }
