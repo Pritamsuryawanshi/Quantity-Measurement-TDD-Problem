@@ -35,4 +35,11 @@ public class QuantityMeasurementTest {
         boolean result = object.typeCheck(object);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void givenObjects_IfMatchesTheirValues_ShouldReturnFalse() {
+        QuantityMeasurement objectOne = new QuantityMeasurement(5,10);
+        QuantityMeasurement objectTwo = new QuantityMeasurement(5,10);
+        Assert.assertEquals(objectOne.valueOne,objectTwo.valueOne);
+    }
 }

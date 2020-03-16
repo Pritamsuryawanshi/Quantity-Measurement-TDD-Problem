@@ -1,6 +1,17 @@
 package com.quantitymeasurement;
 
 public class QuantityMeasurement {
+    public int valueOne;
+    public int valueTwo;
+
+    public QuantityMeasurement() {
+
+    }
+    public QuantityMeasurement(int valueOne, int valueTwo) {
+        this.valueOne = valueOne;
+        this.valueTwo = valueTwo;
+    }
+
     public boolean calculatingMeasurements(int paramOne, int paramTwo) {
         if (paramOne == paramTwo)
             return true;
@@ -17,13 +28,13 @@ public class QuantityMeasurement {
     }
 
     public boolean referenceCheck(QuantityMeasurement object) {
-        if(object==this)
+        if (object == this)
             return true;
         return false;
     }
 
     public boolean typeCheck(QuantityMeasurement object) {
-        if(object.getClass()==this.getClass())
+        if (object.getClass() == this.getClass())
             return true;
         return false;
     }
