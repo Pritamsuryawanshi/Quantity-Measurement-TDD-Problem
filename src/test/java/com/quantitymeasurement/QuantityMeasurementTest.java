@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public class QuantityMeasurementTest {
 
-    private QuantityMeasurement object;
+    public QuantityMeasurement object;
 
     @Before
     public void QuantityMeasurement() {
@@ -17,8 +17,8 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenTwoValuesInFeet_IfEqual_ShouldReturnTrue() {
-        boolean result = object.comparingValues(0, 0);
-        Assert.assertTrue(result);
+        double result = object.conversion(0, Conversion.FEET);
+        Assert.assertEquals(0, result, 0.0);
     }
 
     @Test
@@ -28,50 +28,51 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenObject_IfMatchesTheReference_ShouldReturnFalse() {
+    public void givenObject_IfMatchesTheReference_ShouldReturnTrue() {
+        QuantityMeasurement objectOne=new QuantityMeasurement();
+        boolean result = object.equals(objectOne);
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void givenObject_IfMatchesTheReference2_ShouldReturnTrue() {
         boolean result = object.equals(new QuantityMeasurement());
         Assert.assertTrue(result);
     }
 
     @Test
-    public void givenObject_IfMatchesTheType_ShouldReturnFalse() {
+    public void givenObject_IfMatchesTheType_ShouldReturnTrue() {
         boolean result = Objects.equals(object.getClass(), QuantityMeasurement.class);
         Assert.assertTrue(result);
     }
 
-    @Test
-    public void givenObjects_IfMatchesTheirValues_ShouldReturnFalse() {
-        QuantityMeasurement objectOne = new QuantityMeasurement(5, 10);
-        QuantityMeasurement objectTwo = new QuantityMeasurement(5, 10);
-        Assert.assertEquals(objectOne.valueOne, objectTwo.valueOne);
-    }
 
     @Test
     public void givenTwoValuesInInch_IfEqual_ShouldReturnTrue() {
-        boolean result = object.comparingValues(0, 0);
-        Assert.assertTrue(result);
+        double result = object.conversion(0, Conversion.INCH);
+        Assert.assertEquals(0, result, 0.0);
     }
 
     @Test
-    public void givenObjectForInch_IfNotNull_ShouldReturnFalse() {
-        boolean result = object.equals(null);
+    public void givenObjectForInch_IfNotNull_ShouldReturnTrue() {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        boolean result = quantityMeasurement.equals(null);
         Assert.assertFalse(result);
     }
 
     @Test
-    public void givenObjectForInch_IfMatchesTheReference_ShouldReturnFalse() {
+    public void givenObjectForInch_IfMatchesTheReference_ShouldReturnFTrue() {
         boolean result = object.equals(new QuantityMeasurement());
         Assert.assertTrue(result);
     }
 
     @Test
-    public void givenObjectForInch_IfMatchesTheType_ShouldReturnFalse() {
+    public void givenObjectForInch_IfMatchesTheType_ShouldReturnTrue() {
         boolean result = object.getClass().equals(QuantityMeasurement.class);
         Assert.assertTrue(result);
     }
 
     @Test
-    public void givenObjectsFor_IfMatchesTheirValues_ShouldReturnFalse() {
+    public void givenObjects_IfMatchesTheirValues_ShouldReturnTrue() {
         QuantityMeasurement objectOne = new QuantityMeasurement(5, 10);
         QuantityMeasurement objectTwo = new QuantityMeasurement(5, 10);
         Assert.assertEquals(objectOne.valueOne, objectTwo.valueOne);
@@ -209,10 +210,24 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenWeightsInTonnesAnd_ShouldReturnConversionInKilogram() {
+    public void givenWeightsInTonnes_ShouldReturnConversionInKilogram() {
         double conversionOne = object.conversion(1, Conversion.TONNE_TO_KILOGRAM);
         double conversionTwo = object.conversion(1000, Conversion.GRAM_TO_KILOGRAM);
         double result = object.addition(conversionOne, conversionTwo);
         Assert.assertEquals(1001, result, 0.0);
+    }
+
+    @Test
+    public void givenWeightsInFarenheit_ShouldReturnConversionInCelsius() {
+        double result = object.conversion(212, Conversion.FARENHEIT_TO_CELSIUS);
+        Assert.assertEquals(100.00, (int) result, 0.0);
+    }
+
+
+
+    @Test
+    public void givenWeightsInFarenheits_ShouldReturnConversionInCelsius() {
+        double celsius = object.farenheitToCelsius(212);
+        Assert.assertEquals(100.00, celsius, 0.0);
     }
 }
